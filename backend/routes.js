@@ -42,10 +42,9 @@ router.get('/projects', projectController.projectList);
 router.post('/project', projectController.projectCreate);
 router.put('/project/:project_id', projectController.projectUpdate);
 router.delete('/project/:project_id', projectController.projectDelete);
-router.get('/project/search/:name', projectController.projectFindByName);
+//router.get('/project/search/:name', projectController.projectFindByName);
 router.get('/project/search/:project_id', projectController.projectFindById);
 
 router.post('/project/addCategory/:project_id', projectController.projectAddCategory);
 router.post('/project/removeCategory/:project_id', projectController.projectRemoveCategory);
-
 module.exports = router;

@@ -1,1 +1,9 @@
-<p>project works!</p>
+<h2>Project list</h2>
+<div>
+    <button (click)="add()">Add</button>
+</div>
+<ul>
+    <li *ngFor="let item of projects">
+        {{item.name}}
+    </li>
+</ul>

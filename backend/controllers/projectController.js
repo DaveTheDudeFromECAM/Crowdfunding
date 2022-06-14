@@ -60,8 +60,7 @@ exports.projectDelete = async function (req, res) {
 //CHECK IT!!
 exports.projectFindById = async function (req, res) {
     if (req.params.project_id) {
-        //await Project.findOne({ where: { project_id: req.params.project_id }, include: Game })
-        await Project.findOne({ where: { project_id: req.params.project_id }, include: [{model: Platform, as:'platforms'}, {model: Game, as:'games'}, {model: Category, as:'categories'}] })
+        await Project.findOne({ where: { project_id: req.params.project_id } })
             .then(data => {
                 res.json(data);
             })
