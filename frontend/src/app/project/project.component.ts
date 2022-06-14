@@ -10,7 +10,11 @@ import { Router } from "@angular/router";
 })
 export class ProjectComponent implements OnInit {
 
-  projects : Project[] = []
+  projects : Project[] = [];
+  project = {project_id: 0,  name: "null", info: "null", goal: 0, raised: 0 };
+  percentage: number = 50;
+  
+ 
 
   constructor(public rest:RestService, private router:Router) { }
 
@@ -28,5 +32,13 @@ export class ProjectComponent implements OnInit {
 
     add(){
       this.router.navigate(['/project-add'])
+    }
+    getPercentage(p: Project){
+      this.percentage = p.raised/p.goal*100;
+      return this.percentage;
+
+    }
+    search(){
+      this.router.navigate(['/project-search'])
     }
 }

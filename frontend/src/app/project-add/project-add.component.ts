@@ -9,7 +9,7 @@ import { Router, ActivatedRoute } from "@angular/router";
   styleUrls: ['./project-add.component.css']
 })
 export class ProjectAddComponent implements OnInit {
-  project = {project_id: 0,  name: "null", info: "null", goal: 0, raised: 0 }
+  project = {project_id: 0,  name: "Name", info: "Indo", goal: 0, raised: 0 }
 
   constructor(public rest: RestService, private router: Router) { }
 

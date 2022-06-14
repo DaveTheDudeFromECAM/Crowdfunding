@@ -1,9 +1,25 @@
-<h2>Project list</h2>
-<div>
-    <button (click)="add()">Add</button>
-</div>
+<div class="main">
+<h1>Project list <br>
+    <button class="button" color="primary" (click)="add()" mat-mini-fab><mat-icon>plus_one</mat-icon></button>
+    <button class="button" color="primary" (click)="add()" mat-mini-fab ><mat-icon>search</mat-icon></button>
+</h1>
+
 <ul>
+    
     <li *ngFor="let item of projects">
-        {{item.name}}
+        <div class="inner">
+        <h2>
+            <button class="button" mat-flat-button color="primary" routerLink="/project-edit/{{item.project_id}}"> <mat-icon>edit</mat-icon></button>
+            <button class="button" mat-flat-button color="primary" routerLink="/project-delete/{{item.project_id}}"> <mat-icon>delete</mat-icon></button>
+            {{item.name}}
+        </h2>    
+        <p>{{item.info}}</p>
+        <p> raised: {{item.raised}} € goal: {{item.goal}} €</p>
+
+        <section class="bar">
+            <mat-progress-bar class="margin" mode="determinate" value={{getPercentage(item)}}></mat-progress-bar>
+        </section>
+        </div>
     </li>
 </ul>
+</div>

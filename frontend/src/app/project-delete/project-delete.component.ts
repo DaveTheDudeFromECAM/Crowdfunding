@@ -1,19 +1,20 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { RestService, Project } from "../rest.service";
 import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
-  selector: 'app-project-edit',
-  templateUrl: './project-edit.component.html',
-  styleUrls: ['./project-edit.component.css']
+  selector: 'app-project-delete',
+  templateUrl: './project-delete.component.html',
+  styleUrls: ['./project-delete.component.css']
 })
-export class ProjectEditComponent implements OnInit {
+export class ProjectDeleteComponent implements OnInit {
   project = {project_id: 0,  name: "null", info: "null", goal: 0, raised: 0 }
 
-  constructor(public rest: RestService, private route:ActivatedRoute,  private router: Router) { }
+  constructor(public rest: RestService,private route:ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+
     this.rest.getProject(this.route.snapshot.params['project_id']).subscribe(
       (data)=>{
         console.log(data);
@@ -22,16 +23,16 @@ export class ProjectEditComponent implements OnInit {
       }
     )
   }
-  updateProject(){
-    this.rest.updateProject(this.project).subscribe(
-      (result) => {
+  deleteProject() {
+    
+    this.rest.deleteProject(this.project).subscribe(
+      () => {
         this.router.navigate(["/projects"]);
-        console.log("update success");
+        console.log("delete success");
       },
       (err)=>{
         console.log(err);
       }
     )
   }
-
 }

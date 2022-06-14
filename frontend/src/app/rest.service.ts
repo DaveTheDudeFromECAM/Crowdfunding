@@ -34,11 +34,25 @@ export class RestService {
   }
 
   updateProject(project:Project): Observable<any> {
-    return this.http.put<Project>(endpoint + 'projects/'+ project.project_id, project )
+    return this.http.put<Project>(endpoint + 'project/'+ project.project_id, project )
   }
 
   getProject(id:number): Observable<any> {
     return this.http.get<Project>(endpoint + 'project/search/' + id);
 
+  }
+
+  searchProject(name: string): Observable<any> {
+    return this.http.get<Project>(endpoint + 'project/search/' + name);
+
+  }
+
+  deleteProject(project:Project): Observable<void> {
+    return this.http.delete<void>(endpoint + 'project/'+ project.project_id )
+  }
+
+  getPercent(p:Project){
+    console.log(p.raised/p.goal*100);
+    return p.raised/p.goal*100;
   }
 }
