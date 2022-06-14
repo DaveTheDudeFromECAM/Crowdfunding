@@ -1,7 +1,7 @@
 <div>
     <h2>Product edit</h2>
     <button class="button" mat-flat-button color="primary" routerLink="/projects"> <mat-icon>home</mat-icon></button> <br><br>
-    <input type="text" [(ngModel)]="project.name" (ngModelChange)="project.name = $event.toUpperCase()" placeholder="Name">Name<br>
+    <input type="text" [(ngModel)]="project.name" placeholder="Name">Name<br>
     <input type="text" [(ngModel)]="project.info" placeholder="Info">Info<br>
     <input type="text" [(ngModel)]="project.goal" placeholder="Goal">Goal<br>
     <input type="text" [(ngModel)]="project.raised" placeholder="Raised">Raised<br>

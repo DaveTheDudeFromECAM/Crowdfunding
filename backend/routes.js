@@ -42,7 +42,9 @@ router.get('/projects', projectController.projectList);
 router.post('/project', projectController.projectCreate);
 router.put('/project/:project_id', projectController.projectUpdate);
 router.delete('/project/:project_id', projectController.projectDelete);
-router.get('/project/search/:name', projectController.projectFindByName);
+
+//SOUCE DU PROBLEME LORS DE LA DEFENSE ORALE!!!
+//router.get('/project/search/:name', projectController.projectFindByName); #BUG 
 router.get('/project/search/:project_id', projectController.projectFindById);
 
 router.post('/project/addCategory/:project_id', projectController.projectAddCategory);

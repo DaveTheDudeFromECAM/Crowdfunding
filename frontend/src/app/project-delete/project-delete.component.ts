@@ -14,7 +14,6 @@ export class ProjectDeleteComponent implements OnInit {
   constructor(public rest: RestService,private route:ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-
     this.rest.getProject(this.route.snapshot.params['project_id']).subscribe(
       (data)=>{
         console.log(data);
@@ -24,7 +23,6 @@ export class ProjectDeleteComponent implements OnInit {
     )
   }
   deleteProject() {
-    
     this.rest.deleteProject(this.project).subscribe(
       () => {
         this.router.navigate(["/projects"]);

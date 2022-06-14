@@ -47,8 +47,8 @@ export class RestService {
 
   }
 
-  deleteProject(project:Project): Observable<void> {
-    return this.http.delete<void>(endpoint + 'project/'+ project.project_id )
+  deleteProject(p:Project): Observable<void> {
+    return this.http.delete<void>(endpoint + 'project/'+ p.project_id )
   }
 
   getPercent(p:Project){
